@@ -1,0 +1,8 @@
+# Official MCP Python SDK
+mcp>=1.0.0
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+uvicorn>=0.25.0
+fastapi>=0.108.0
+openai>=1.12.0
+boto3>=1.34.0

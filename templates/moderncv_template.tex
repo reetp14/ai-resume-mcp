@@ -1,0 +1,88 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% moderncv themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks
+
+% personal data
+\name{{{NAME}}}{}
+{{#EMAIL}}\email{{{EMAIL}}}{{/EMAIL}}
+{{#PHONE}}\phone[mobile]{{{PHONE}}}{{/PHONE}}
+{{#LOCATION}}\address{{{LOCATION}}}{{/LOCATION}}
+{{#LINKEDIN}}\social[linkedin]{{{LINKEDIN}}}{{/LINKEDIN}}
+{{#GITHUB}}\social[github]{{{GITHUB}}}{{/GITHUB}}
+{{#WEBSITE}}\homepage{{{WEBSITE}}}{{/WEBSITE}}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+{{#SUMMARY}}
+\section{Professional Summary}
+\cvitem{}{{{SUMMARY}}}
+{{/SUMMARY}}
+
+\section{Technical Skills}
+{{#SKILLS}}
+\cvitem{}{{{SKILLS_LIST}}}
+{{/SKILLS}}
+
+{{#WORK_EXPERIENCE}}
+\section{Professional Experience}
+{{#WORK_EXP_ITEMS}}
+\cventry{{{START_DATE}}--{{#END_DATE}}{{{END_DATE}}}{{/END_DATE}}{{^END_DATE}}Present{{/END_DATE}}}{{{POSITION}}}{{{COMPANY}}}{{#LOCATION}}{{{LOCATION}}}{{/LOCATION}}{}{%
+{{#DESCRIPTION}}
+\begin{itemize}%
+{{#DESC_ITEMS}}
+\item {{{.}}}
+{{/DESC_ITEMS}}
+\end{itemize}}
+{{/DESCRIPTION}}
+{{/WORK_EXP_ITEMS}}
+{{/WORK_EXPERIENCE}}
+
+\section{Education}
+{{#EDUCATION}}
+{{#EDU_ITEMS}}
+\cventry{{{GRADUATION_DATE}}}{{{DEGREE}}}{{#FIELD}} in {{{FIELD}}}{{/FIELD}}{{{INSTITUTION}}}{{#LOCATION}}{{{LOCATION}}}{{/LOCATION}}{{#GPA}}{GPA: {{{GPA}}}}{{/GPA}}{}
+{{/EDU_ITEMS}}
+{{/EDUCATION}}
+
+{{#PROJECTS}}
+\section{Projects}
+{{#PROJECT_ITEMS}}
+\cventry{{#DATE}}{{{DATE}}}{{/DATE}}{{^DATE}}{}{{/DATE}}{{{NAME}}}{}{}{}{%
+{{{DESCRIPTION}}}
+\newline{}%
+\textbf{Technologies:} {{{TECHNOLOGIES}}}{{#URL}}
+\newline{}%
+\textbf{URL:} \url{{{URL}}}{{/URL}}}
+{{/PROJECT_ITEMS}}
+{{/PROJECTS}}
+
+{{#CERTIFICATIONS}}
+\section{Certifications}
+\cvitem{}{{{CERT_LIST}}}
+{{/CERTIFICATIONS}}
+
+{{#LANGUAGES}}
+\section{Languages}
+\cvitem{}{{{LANG_LIST}}}
+{{/LANGUAGES}}
+
+\end{document}
