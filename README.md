@@ -263,7 +263,7 @@ docker-compose exec mcp-resume-server pytest
 ### Key Components
 
 - **MCP Server**: Handles protocol communication and tool registration
-- **OpenAI Service**: Generates tailored resume content using GPT-4o-mini
+- **OpenAI Service**: Generates tailored resume content using GPT-4.1
 - **LaTeX Service**: Compiles LaTeX to PDF with security sandboxing
 - **S3 Service**: Manages file uploads and presigned URL generation
 - **Input Validation**: Pydantic schemas for data validation
