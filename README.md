@@ -25,7 +25,7 @@ A production-ready Model Context Protocol (MCP) server that generates ATS-optimi
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/reetp14/ai-resume-mcp.git
 cd ai-resume-mcp
 ```
 
@@ -71,7 +71,7 @@ python -m src.server
 ### Environment Variables
 
 | Variable | Description | Default |
-|----------|-------------|---------|
+|----------|-------------|----------|
 | `OPENAI_API_KEY` | OpenAI API key | Required |
 | `AWS_ACCESS_KEY_ID` | AWS access key | Required |
 | `AWS_SECRET_ACCESS_KEY` | AWS secret key | Required |
@@ -83,33 +83,12 @@ python -m src.server
 | `LATEX_TIMEOUT` | LaTeX compilation timeout (seconds) | `10` |
 | `MAX_RESUME_SIZE_MB` | Maximum PDF size in MB | `5` |
 
-### AWS S3 Setup
+## 🚀 **Live Demo**
 
-1. Create an S3 bucket for storing resume PDFs
-2. Configure bucket permissions for upload/download access
-3. Set up IAM user with appropriate S3 permissions:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject",
-                "s3:GetObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": "arn:aws:s3:::your-bucket-name/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": "s3:ListBucket",
-            "Resource": "arn:aws:s3:::your-bucket-name"
-        }
-    ]
-}
-```
+Try the AI Resume Generator:
+- **Input**: Your profile data + job description
+- **AI Processing**: GPT-4.1 analyzes and optimizes content
+- **Output**: Professional PDF resume in seconds
 
 ## API Usage
 
